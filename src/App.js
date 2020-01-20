@@ -1,24 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import RandomQuote from './components/RandomQuote'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <div className="categoryButtons">
+        <button>button1</button>
+        <button>button2</button>
+        <button>button3</button>
+      </div>
+      <RandomQuote src="https://assets.chucknorris.host/img/avatar/chuck-norris.png" alt="foto"></RandomQuote>
+      <div className="RandomQuote">
+        <h1>QUOTES</h1>
+        <img className="images" src="https://assets.chucknorris.host/img/avatar/chuck-norris.png" alt="foto"></img>
+        <p>some quote</p>
+      </div>
     </div>
   );
 }
