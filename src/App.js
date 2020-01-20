@@ -12,11 +12,7 @@ function App() {
         <button>button3</button>
       </div>
       <RandomQuote src="https://assets.chucknorris.host/img/avatar/chuck-norris.png" alt="foto"></RandomQuote>
-      <div className="RandomQuote">
-        <h1>QUOTES</h1>
-        <img className="images" src="https://assets.chucknorris.host/img/avatar/chuck-norris.png" alt="foto"></img>
-        <p>some quote</p>
-      </div>
+      
     </div>
   );
 }
