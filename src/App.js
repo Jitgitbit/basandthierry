@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import RandomQuote from "./components/RandomQuote";
+import RandomQuote from "./components/RandomQuote.jsx";
 
 function App() {
   return (
