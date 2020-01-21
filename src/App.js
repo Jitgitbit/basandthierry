@@ -7,12 +7,13 @@ import CategoriesComponent from "./components/CategoriesComponent";
 
 function App() {
   return (
-    
-    <main className="App">
-        <Title src="https://assets.chucknorris.host/img/avatar/chuck-norris.png" alt={'a'}/>
+   <main className="BackVideo"> 
+     <div className="App">
+        <Title /*src="https://assets.chucknorris.host/img/avatar/chuck-norris.png" alt={'a'}*/ />
         <RandomQuote/>
         <SearchQuote/>
         <CategoriesComponent/>
+     </div>
     </main>
   );
 }

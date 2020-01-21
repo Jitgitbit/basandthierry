@@ -5,9 +5,10 @@ export default class Title extends Component {
     return (
       <div>
         <h1>Chuck Norris Quotes</h1>
-        <img className="images" src={this.props.src} alt="foto"/>
+          
       </div>
     )
   }
 }
 
+//<img className="images" src={this.props.src} alt="foto"/>

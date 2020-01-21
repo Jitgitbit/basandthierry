@@ -6,11 +6,9 @@ export default class CategoriesComponent extends Component {
     data : [],
     error: false,
   }
-  // ...
+  
   componentDidMount() {
-    // (1) fetch some data (hopefully, something resembling a list of articles)
-    // (2) put it in component local state (as per the shape discussed above)
-    // (3) ...and if the loading fails, set an error state like discussed above
+    
     return fetch("https://api.chucknorris.io/jokes/random")
       .then(res => res.json())
       .then(myJson => {
