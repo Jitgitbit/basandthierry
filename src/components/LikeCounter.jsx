@@ -17,4 +17,4 @@ export default class LikeCounter extends React.Component {
       </div>
     );
   }
-}
+};
