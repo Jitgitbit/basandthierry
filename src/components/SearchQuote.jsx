@@ -12,18 +12,17 @@ export default class SearchQuote extends Component {
     return fetch(`https://api.chucknorris.io/jokes/search?query=${this.state.query}`)
       .then(res => res.json())
       .then(myJson => {
-        setTimeout(() => {
           console.log(myJson)
           this.setState({
-            results: myJson,
+            results: myJson.result,
             loading: true,
-          });
-        }, 1000)   
+          });  
       })
       .catch(err => 
-        this.setState({
-          error: true,
-      }))
+        console.log(err, "error")
+        
+     
+      )
       
   }
 
@@ -41,7 +40,10 @@ export default class SearchQuote extends Component {
   }
 
   render() {
+    console.log("what is my state", this.state);
+    
     return (
+      <div>
       <form onSubmit={this.handleSubmit}>
         <input
           placeholder="Search for..."
@@ -49,6 +51,10 @@ export default class SearchQuote extends Component {
           onChange={this.handleInputChange}
         />
       </form>
+     {this.state.results.map(quote => {
+       return <p> {quote.value}</p>
+     })}
+      </div>
     )
   }
 }
