@@ -14,14 +14,13 @@ export default class SearchQuote extends Component {
       .then(myJson => {
           console.log(myJson)
           this.setState({
-            results: myJson.result,
+            results: myJson.result, //Watch out here! I had to indicate .result because of this particular API structure !!!
             loading: true,
           });  
       })
       .catch(err => 
         console.log(err, "error")
         
-     
       )
       
   }
