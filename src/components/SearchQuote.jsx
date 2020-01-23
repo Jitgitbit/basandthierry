@@ -9,12 +9,16 @@ export default class SearchQuote extends Component {
 
   getInfo = () => {
     
-    return fetch(`https://api.chucknorris.io/jokes/search?query=${this.state.query}`)
+    fetch(`https://api.chucknorris.io/jokes/search?query=${this.state.query}`)
       .then(res => res.json())
       .then(myJson => {
           console.log(myJson)
+          let limitedResults = myJson.result; //Watch out here! I had to indicate .result because of this particular API structure !!!
+          if (myJson.result.length > 5) {
+            limitedResults = myJson.result.splice(0, 5);
+          }
           this.setState({
-            results: myJson.result, //Watch out here! I had to indicate .result because of this particular API structure !!!
+            results: limitedResults, 
             loading: true,
           });  
       })
@@ -28,7 +32,7 @@ export default class SearchQuote extends Component {
   handleInputChange = (event) => {
     event.preventDefault();
     this.setState({
-      query: event.target.value
+      query: event.target.value,
     })
   }
 
@@ -38,9 +42,16 @@ export default class SearchQuote extends Component {
     this.getInfo()
   }
 
+  searchOutput = () => {
+    return this.state.results.map((quote, index) => {
+      return <li key={index}>{quote.value}</li>;
+    })
+  }
+
   render() {
     console.log("what is my state", this.state);
-    
+    const quotesArray = this.searchOutput()
+    console.log(quotesArray)
     return (
       <div>
       <form onSubmit={this.handleSubmit}>
@@ -50,11 +61,20 @@ export default class SearchQuote extends Component {
           onChange={this.handleInputChange}
         />
       </form>
-     {this.state.results.map(quote => {
-       return <p> {quote.value}</p>
-     })}
+        <ul>
+          {this.searchOutput()}
+        </ul>
       </div>
     )
   }
 }
 
+/*
+{this.state.results.map(quote => {
+       
+     return  <ul>
+                {quote.value} 
+              </ul>
+
+     })}
+  */
