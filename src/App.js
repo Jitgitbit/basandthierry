@@ -14,6 +14,7 @@ function App() {
         <Title /*src="https://assets.chucknorris.host/img/avatar/chuck-norris.png" alt={'a'}*/ />
         <RandomQuote/>
         <LikeCounter/>
+        <br/>
         <SearchQuote/>
         <CategoriesComponent/>
      </div>
