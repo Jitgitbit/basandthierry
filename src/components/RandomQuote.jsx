@@ -11,17 +11,14 @@ export default class RandomQuote extends Component {
   }
   
   getQuote() {
-    
      fetch("https://api.chucknorris.io/jokes/random")
       .then(res => res.json())
       .then(myJson => {
-        setTimeout(() => {
           console.log(myJson)
           this.setState({
             data: myJson,
             loading: true,
-          });
-        }, 1000)   
+          });    
       })
       .catch(err => 
         this.setState({
@@ -30,7 +27,10 @@ export default class RandomQuote extends Component {
   }
 
   componentDidMount(){
-    this.getQuote();
+    console.log('component is mounting')
+    setTimeout(() => {this.getQuote()}, 500);
+    console.log('component mounted')
+    //this.getQuote();
   }
 
   newQuote(){
