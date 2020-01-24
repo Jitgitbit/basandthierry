@@ -7,9 +7,9 @@ export default class RandomQuote extends Component {
     error: false,
   }
   
-  componentDidMount() {
+  getQuote() {
     
-    return fetch("https://api.chucknorris.io/jokes/random")
+     fetch("https://api.chucknorris.io/jokes/random")
       .then(res => res.json())
       .then(myJson => {
         setTimeout(() => {
@@ -25,10 +25,16 @@ export default class RandomQuote extends Component {
           error: true,
       }))
   }
-  newQuote(){
-    console.log('testing button');
+
+  componentDidMount(){
+    this.getQuote();
   }
-  
+
+  newQuote(){
+    console.log('testing button', this);
+    this.getQuote();
+  }
+
   render() {
     const errorMessage = <h1>OOPSADAISY, ERRRRRRORRRR!!!</h1>
     if (this.state.loading) {
@@ -36,7 +42,8 @@ export default class RandomQuote extends Component {
                 <h3>Random Quote!!</h3>
                 {this.state.data.value}
                 <div>
-                  <button onClick={this.newQuote}>Get another random quote!</button>
+                  {/* <button onClick={this.newQuote()}>Get another random quote!</button> */}
+                  <button onClick={() => {this.newQuote()}}>Get another random quote!</button> {/* Look! adding the arrowfunction solved it! */}
                 </div>
               </div>;
     } else if (this.state.error) {
