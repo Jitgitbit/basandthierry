@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 export default class SearchQuote extends Component {
   state = {
@@ -14,8 +15,8 @@ export default class SearchQuote extends Component {
       .then(myJson => {
           console.log(myJson)
           let limitedResults = myJson.result; //Watch out here! I had to indicate .result because of this particular API structure !!!
-          if (myJson.result.length > 5) {
-            limitedResults = myJson.result.splice(0, 5);
+          if (myJson.result.length > 10) {
+            limitedResults = myJson.result.splice(0, 10);
           }
           this.setState({
             results: limitedResults, 
@@ -54,7 +55,10 @@ export default class SearchQuote extends Component {
     console.log(quotesArray)
     return (
       <div>
+        <Link to={ `/` } style={{color: 'white'}}>Back to categories</Link>
+        <br/>
       <form onSubmit={this.handleSubmit}>
+        <h2>Or search a quote here</h2>
         <input
           placeholder="Search for..."
           value={this.state.query}
@@ -68,13 +72,3 @@ export default class SearchQuote extends Component {
     )
   }
 }
-
-/*
-{this.state.results.map(quote => {
-       
-     return  <ul>
-                {quote.value} 
-              </ul>
-
-     })}
-  */

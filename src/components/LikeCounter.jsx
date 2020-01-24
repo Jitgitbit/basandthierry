@@ -12,8 +12,8 @@ export default class LikeCounter extends React.Component {
   render() {
     return (
       <div>
+        <button onClick={this.increment}>Like this quote</button>
         <p>This post has <b>{ this.state.numLikes }</b> likes!</p>
-        <button onClick={this.increment}>Like</button>
       </div>
     );
   }

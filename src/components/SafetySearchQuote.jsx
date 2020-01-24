@@ -1,4 +1,3 @@
-//just a backup in case
 import React, { Component } from 'react';
 
 export default class SearchQuote extends Component {
@@ -69,13 +68,3 @@ export default class SearchQuote extends Component {
     )
   }
 }
-
-/*
-{this.state.results.map(quote => {
-       
-     return  <ul>
-                {quote.value} 
-              </ul>
-
-     })}
-  */
