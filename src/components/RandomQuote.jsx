@@ -24,14 +24,20 @@ export default class RandomQuote extends Component {
         this.setState({
           error: true,
       }))
-      
   }
+  newQuote(){
+    console.log('testing button');
+  }
+  
   render() {
     const errorMessage = <h1>OOPSADAISY, ERRRRRRORRRR!!!</h1>
     if (this.state.loading) {
       return <div>
                 <h3>Random Quote!!</h3>
                 {this.state.data.value}
+                <div>
+                  <button onClick={this.newQuote}>Get another random quote!</button>
+                </div>
               </div>;
     } else if (this.state.error) {
       return <div>{errorMessage}</div>;
