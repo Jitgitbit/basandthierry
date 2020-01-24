@@ -55,7 +55,7 @@ export default class SearchQuote extends Component {
     console.log(quotesArray)
     return (
       <div>
-        <Link to={ `/` } style={{color: 'white'}}>Back to categories</Link>
+        <Link to={ `/` } style={{color: 'white'}}>Back to random quotes</Link>
         <br/>
       <form onSubmit={this.handleSubmit}>
         <h2>Or search a quote here</h2>
